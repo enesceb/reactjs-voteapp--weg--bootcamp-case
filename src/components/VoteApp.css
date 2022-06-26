@@ -127,8 +127,8 @@ button {
 
 .btn-track .--icon #pin {
   position: absolute;
-  top: 0px;
-  left: 25px;
+  top: 1px;
+  left: 18px;
   opacity: 0;
   transition: all 0.2s ease;
 }
@@ -186,6 +186,11 @@ button {
 
 .btn-track:hover .--icon .circle-outer {
   transform: scale(1);
+  transition-delay: 0.25s;
+}
+
+.btn-track:hover .--icon p {
+  opacity: 0;
   transition-delay: 0.25s;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import {ReactComponent as VoteSVG} from "../assets/vote.svg"
+import { MdHowToVote } from "react-icons/md";
 
 const Card = () => {
   return (
@@ -26,7 +27,9 @@ const Card = () => {
             <div className="--icon">
               <div className="circle-inner"></div>
               <div className="circle-outer"></div>
+              <p>Oy ver</p>
               <VoteSVG/>
+              
             </div>
           </button>
         </div>

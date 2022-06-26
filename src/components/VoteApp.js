@@ -6,6 +6,9 @@ const VoteApp = () => {
   return (
     <>
     <Card/>
+    <Card/>
+    <Card/>
+    
     </>
   );
 };
