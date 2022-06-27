@@ -9,7 +9,7 @@ const Card = ({first,last, picture,title,email, gender }) => {
     <div className="card-container">
       <div className="card">
         <div className="avatar-container">
-          <a href="https://randomuser.me/api/portraits/men/75.jpg">
+          <a href="/">
             <div className="avatar">
               <img src={picture} alt={`${first}-${last}`}/>
             </div>

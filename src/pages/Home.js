@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import EmpoyeeCards from "../components/EmpoyeeCards";
 
 import { DataContext } from "../context/DataContext";
-import "../styles/Home.scss";
+
 const Home = () => {
 
   // API'den gelen verileri context yapısı ile yönetiyorum
@@ -11,7 +11,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <>
       {/* Çalışanların Listelendiği alan. API'den genel veriler bir alt componente (EmployeeCards) prop olarak iletiliyor.*/}
       {/* NOT: Context'i direkt olarak EmployeeCards componentinin içinde de kullanabilirdim fakat clean code olması açısından burada prop olarak göndermeyi tercih ettim */}
     
@@ -41,7 +41,7 @@ const Home = () => {
             />
           );
         })}
-    </div>
+    </>
   );
 };
 

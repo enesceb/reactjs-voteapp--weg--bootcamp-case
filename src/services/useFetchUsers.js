@@ -4,7 +4,7 @@ import uuid from "react-uuid";
 //API'ye İstek atma işlemleri
 
 const useFetchUsers = () => {
-  
+
   //Verilerim Rest API'dan gelmeseydi ve statik bir json verisi olsaydı local storage'ye kaydederdim fakat Rest API'den veri aldığım için Session Storage'a kaydettim.
   //Burada Session Storage'de key value var mı diye kontrol ediyorum. eğer varsa state'imi bununla güncelliyorum, item yoksa || operatörü ile boş aray döndürüyorum 
  
@@ -17,7 +17,7 @@ const useFetchUsers = () => {
   //nat=us : nat API'de Nationalities anlamına geliyor, TR'de Turkey milletini temsil ediyor. Yani listede sadece Türkleri listeleyeceğimi belirtiyorum. 
   //exc=login, registered : API dökümantasyonunda yazan bilgiye göre Excluding fields yani hariç tutmak istediğimiz alanları belli etmemize yarıyor. Login ve Register'i hariç tutarak verilerin hızlı yüklenmesini istedim 
  
-  const url = `https://randomuser.me/api/?results=5&nat=TR&&exc=login,registered`;
+  const url = `https://randomuser.me/api/?results=4&nat=TR&&exc=login,registered`;
 
   //useEffect kullanarak componenet on mount olurken verilerin yüklenmesini istedim
  
