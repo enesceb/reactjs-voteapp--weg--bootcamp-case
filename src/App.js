@@ -1,14 +1,17 @@
-
-import './App.css';
-import EmployeeDetail from './components/EmployeeDetail';
-import VoteApp from './components/VoteApp';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DataProvider } from "./context/EmployeeDataContext";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-        <EmployeeDetail></EmployeeDetail>
-        <VoteApp></VoteApp>
-    </>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   );
 }
 
