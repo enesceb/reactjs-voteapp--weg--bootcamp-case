@@ -2,7 +2,8 @@ import React from 'react'
 import {ReactComponent as VoteSVG} from "../assets/vote.svg"
 import { MdHowToVote } from "react-icons/md";
 
-const Card = () => {
+//Üst compenent'ten gönderdiğim propları burada yakalıyorum
+const Card = ({first,last, picture,title,email, gender }) => {
   return (
     <div className="container">
     <div className="card-container">
@@ -10,14 +11,14 @@ const Card = () => {
         <div className="avatar-container">
           <a href="https://randomuser.me/api/portraits/men/75.jpg">
             <div className="avatar">
-              <img src="https://randomuser.me/api/portraits/men/75.jpg" />
+              <img src={picture} alt={`${first}-${last}`}/>
             </div>
           </a>
         </div>
         <div className="card-body">
-          <h2 className="card-title">MR ENES ÇEB</h2>
-          <p className="card-text">Title : Manager</p>
-          <p className="card-text">Gender : Male</p>
+          <h2 className="card-title">{title} {first} {last} </h2>
+          <p className="card-text">E-mail : {email}</p>
+          <p className="card-text " style={{textTransform: "uppercase"}}>Gender : {gender}</p>
           <a href="/" className="card-link">
             Read more...
           </a>

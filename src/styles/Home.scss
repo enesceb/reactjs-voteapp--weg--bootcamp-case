@@ -36,40 +36,18 @@ p {
     font-size: 14px;
   }
 }
+button{
+  border: none;
+  padding: 10px;
 
-.avatar-container {
-  display: flex;
-  align-items: center;
-  width: 30%;
-}
-.card-body{
-  width: 50%;
-}
-.card-footer{
-  width: 20%;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.avatar {
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  border-color: black;
-  overflow: hidden;
-  img {
-    width: 100%;
-  }
 }
 
 .card-container {
   display: block;
   top: 0px;
   position: relative;
-  width: 25%;
-  background-color: #f2f8f9;
+  width: 35%;
+  background-color: #d7f9ff;
   border-radius: 30px;
   padding: 1.5em 1.5em;
   margin: 12px;
@@ -90,15 +68,34 @@ p {
   }
 }
 
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  .avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-color: black;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}
+.card-body{
+  width: 60%;
+}
+.card-footer{
+  width: 20%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .card {
   display: flex;
-
-}
-
-button{
-  border: none;
-  padding: 10px;
-
 }
 
 .btn-track {
