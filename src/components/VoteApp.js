@@ -7,8 +7,6 @@ const VoteApp = () => {
     <>
     <Card/>
     <Card/>
-    <Card/>
-    
     </>
   );
 };
