@@ -5,7 +5,7 @@ import { format } from "date-fns";
 
 const EmployeeDetail = () => {
     const { users } = useContext(DataContext);
-    const { name:{title, first,last}, picture:{large}, phone, cell, email, location, dob:{ date, age}, gender, nat} = users[0];
+    const { name:{title, first,last}, picture:{large}, phone, email, location, dob:{ date, age}, gender, nat} = users;
     console.log(users)
     const formatedDOB = format(new Date(date), "MM/dd/yyyy")
 
@@ -39,7 +39,7 @@ const EmployeeDetail = () => {
         <div className='card' style={{alignItems: "baseline"}}>
         <h3 style={{marginRight: "10px"}}>Location:</h3> 
         <p className="card-text-profile">  {location.street.number} {location.street.name}. {location.city} </p>
-        <p className="card-text-profile">{location.state} {location.postcode} </p>
+        <p className="card-text-profile">{location.state}, {location.postcode} </p>
         </div>
         <div className="card-footer-profile">
       

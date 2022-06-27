@@ -15,7 +15,7 @@ function App() {
         <Routes>
           {/* Rotalar */}
           <Route path="/" element={<Home />} />
-          <Route path="/Details" element={<ProfileDetails />} />
+          <Route path="/:id" element={<ProfileDetails />} />
         </Routes>
       </BrowserRouter>
     </DataProvider>

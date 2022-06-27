@@ -1,43 +1,38 @@
-import React from 'react'
-import {ReactComponent as VoteSVG} from "../assets/vote.svg"
-import { MdHowToVote } from "react-icons/md";
+import Button from "./Button";
+import { Link } from "react-router-dom";
 
 //Üst compenent'ten gönderdiğim propları burada yakalıyorum
-const Card = ({first,last, picture,title,email, gender }) => {
+const Card = ({ first, last, picture, title, email, gender, id}) => {
   return (
     <div className="container">
-    <div className="card-container">
-      <div className="card">
-        <div className="avatar-container">
-          <a href="/">
-            <div className="avatar">
-              <img src={picture} alt={`${first}-${last}`}/>
+      <div className="card-container">
+        <div className="card">
+        
+            <div className="avatar-container">
+              <a href={`${id}`}>
+                <div className="avatar">
+                  <img src={picture} alt={`${first}-${last}`} />
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <div className="card-body">
-          <h2 className="card-title">{title} {first} {last} </h2>
-          <p className="card-text">E-mail : {email}</p>
-          <p className="card-text " style={{textTransform: "uppercase"}}>Gender : {gender}</p>
-          <a href="/" className="card-link">
-            Read more...
-          </a>
-        </div>
-        <div className="card-footer">
-          <button className="btn-track" href="/">
-            <div className="--icon">
-              <div className="circle-inner"></div>
-              <div className="circle-outer"></div>
-              <p>Oy ver</p>
-              <VoteSVG/>
-              
-            </div>
-          </button>
+
+          <div className="card-body">
+            <h2 className="card-title">
+              {title} {first} {last}{" "}
+            </h2>
+            <p className="card-text">E-mail : {email}</p>
+            <p className="card-text " style={{ textTransform: "uppercase" }}>
+              Gender : {gender}
+            </p>
+            <a href="/" className="card-link">
+              Read more...
+            </a>
+          </div>
+          <Button></Button>
         </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
