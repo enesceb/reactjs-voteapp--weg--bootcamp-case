@@ -3,15 +3,15 @@ import useFetchUsers from "../services/useFetchUsers";
 
 
 
-export const DataContext = createContext();
+export const EmployeeDataContext = createContext();
 
 export const DataProvider = ({ children }) => {
     
     const { users } = useFetchUsers();
 
     return (
-        <DataContext.Provider value={{users}}>
+        <EmployeeDataContext.Provider value={{users}}>
             {children}
-        </DataContext.Provider>
+        </EmployeeDataContext.Provider>
     )
 }
