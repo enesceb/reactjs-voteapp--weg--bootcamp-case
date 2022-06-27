@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import EmpoyeeCards from "../components/EmpoyeeCards";
-import '../styles/Home.scss'
+
+import { DataContext } from "../context/DataContext";
+import "../styles/Home.scss";
 const Home = () => {
+  const { users } = useContext(DataContext);
+  console.log(users);
+
   return (
     <div>
-      <EmpoyeeCards />
+      {users &&
+        users.map((values) => {
+          return <EmpoyeeCards />;
+        })}
     </div>
   );
 };
