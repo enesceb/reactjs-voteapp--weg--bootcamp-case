@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import EmpoyeeCards from "../components/EmpoyeeCards";
+
 import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
+import Button from "../components/Button";
 
 const Home = () => {
   // API'den gelen verileri context yapısı ile yönetiyorum
@@ -25,24 +26,45 @@ const Home = () => {
           } = values;
           console.log(id);
           return (
-            <Link
-              to={`/${id}`}
-              key={id}
-              data-userid={id}
-              onClick={handlePrev}
-              style={{ textDecoration: "none" }}
-            >
-              <EmpoyeeCards
-                id={id}
-                key={id}
-                first={first}
-                last={last}
-                title={title}
-                email={email}
-                gender={gender}
-                picture={large}
-              />
-            </Link>
+            <div className="container">
+              <div className="card-container">
+                <div className="card">
+                  <Link
+                  className="avatar-container"
+                    to={`/${id}`}
+                    key={id}
+                    data-userid={id}
+                    onClick={handlePrev}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <div >
+                      <a href={`${id}`}>
+                        <div className="avatar">
+                          <img src={values.picture.large} alt={`${first}-${last}`} />
+                        </div>
+                      </a>
+                    </div>
+                  </Link>
+
+                  <div className="card-body">
+                    <h2 className="card-title">
+                      {title} {first} {last}{" "}
+                    </h2>
+                    <p className="card-text">E-mail : {email}</p>
+                    <p
+                      className="card-text "
+                      style={{ textTransform: "uppercase" }}
+                    >
+                      Gender : {gender}
+                    </p>
+                    <a href="/" className="card-link">
+                      Read more...
+                    </a>
+                  </div>
+                  <Button/>
+                </div>
+              </div>
+            </div>
           );
         })}
     </>
