@@ -2,67 +2,87 @@ import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
-import Button from "../components/Button";
+import { ReactComponent as VoteSVG } from "../assets/vote.svg";
+import useFetchUsers from "../services/useFetchUsers";
 
 const Home = () => {
   // API'den gelen verileri context yapısı ile yönetiyorum
 
-  const { users, handlePrev } = useContext(DataContext);
+  const { users, handlePrev, } = useContext(DataContext);
+  const { setUsers} = useFetchUsers(users);
+  
+  const sortedUsers = users.sort((a,b) => b.vote - a.vote)
 
+  const updateVote = selected => {
+    setUsers(sortedUsers => sortedUsers.map(user => {
+      if(user.id === selected.id){
+        (user.vote += 1)
+      }
+      console.log(user)
+      return user
+    }))
+  }
   return (
     <>
       {/* Çalışanların Listelendiği alan. API'den genel veriler bir alt componente (EmployeeCards) prop olarak iletiliyor.*/}
       {/* NOT: Context'i direkt olarak EmployeeCards componentinin içinde de kullanabilirdim fakat clean code olması açısından burada prop olarak göndermeyi tercih ettim */}
-
-      {users &&
-        users.map((values) => {
-          //Map ettiğim değerleri values'e aktarıyorum. Context'ten gelen ve içerisinde objeler barındıran users Array'ini direkt obje olarak kullanıyorum.
-          const {
-            name: { first, last, title },
-            picture: { large },
-            email,
-            gender,
-            id,
-          } = values;
-          console.log(id);
+      {sortedUsers &&
+        sortedUsers.map((user) => {
           return (
-            <div className="container">
-              <div className="card-container">
-                <div className="card">
-                  <Link
-                  className="avatar-container"
-                    to={`/${id}`}
-                    key={id}
-                    data-userid={id}
-                    onClick={handlePrev}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <div >
-                      <a href={`${id}`}>
-                        <div className="avatar">
-                          <img src={values.picture.large} alt={`${first}-${last}`} />
-                        </div>
+            <div key={user.id}>
+              <div  className="container">
+                <div className="card-container">
+                  <div className="card">
+                    <Link
+                      className="avatar-container"
+                      to={`/${user.id}`}
+                      key={user.id}
+                      data-userid={user.id}
+                      onClick={handlePrev}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div>
+                        <a href={`${user.id}`}>
+                          <div className="avatar">
+                            <img
+                              src={user.picture.large}
+                              alt={`${user.name.first}-${user.name.last}`}
+                            />
+                          </div>
+                        </a>
+                      </div>
+                    </Link>
+
+                    <div className="card-body">
+                      <h2 className="card-title">
+                        {user.name.title} {user.name.first} {user.name.last}{" "}
+                      </h2>
+                      <p className="card-text">E-mail : {user.email}</p>
+                      
+                      <p
+                      
+                        className="card-text "
+                        style={{ textTransform: "uppercase" }}
+                      >
+                        Gender : {user.gender}
+                      </p>
+                      <a href="/" className="card-link">
+                        Read more...
                       </a>
                     </div>
-                  </Link>
-
-                  <div className="card-body">
-                    <h2 className="card-title">
-                      {title} {first} {last}{" "}
-                    </h2>
-                    <p className="card-text">E-mail : {email}</p>
-                    <p
-                      className="card-text "
-                      style={{ textTransform: "uppercase" }}
-                    >
-                      Gender : {gender}
-                    </p>
-                    <a href="/" className="card-link">
-                      Read more...
-                    </a>
+                    <div className="card-footer">
+                      <button onClick={()=> updateVote(user)} className="btn-track" href="/">
+                        <div className="--icon">
+                          <div className="circle-inner"></div>
+                          <div className="circle-outer"></div>
+                          <p>Oy ver</p>
+                          <VoteSVG />
+                        </div>
+                      </button>
+                    </div>
                   </div>
-                  <Button/>
                 </div>
+                <div className="card-container-vote">Toplam Oy {user.vote} </div>
               </div>
             </div>
           );

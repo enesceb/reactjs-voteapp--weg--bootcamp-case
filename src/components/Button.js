@@ -1,6 +1,9 @@
 import React from 'react'
 import {ReactComponent as VoteSVG} from "../assets/vote.svg"
-const Button = () => {
+const Button = ( ) => {
+
+
+
   return (
     <div className="card-footer">
     <button className="btn-track" href="/">

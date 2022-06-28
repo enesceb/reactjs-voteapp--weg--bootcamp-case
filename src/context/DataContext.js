@@ -6,8 +6,9 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   //Verilere her yerden ulaşabilmem için context yapısı kullandım.
-  const { users } = useFetchUsers();
+  const { users, setUsers, vote } = useFetchUsers();
   const { prev, handlePrev } = usePrevious(users);
+
   
   return (
     <DataContext.Provider value={{ users, handlePrev, prev }}>
