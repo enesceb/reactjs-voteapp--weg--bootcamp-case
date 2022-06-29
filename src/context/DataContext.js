@@ -5,7 +5,6 @@ import usePrevious from "../services/usePrevious";
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
-  //Verilere her yerden ulaşabilmem için context yapısı kullandım.
   const { users, setUsers, vote } = useFetchUsers();
   const { prev, handlePrev } = usePrevious(users);
 

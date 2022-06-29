@@ -8,12 +8,9 @@ import ProfileDetails from "./pages/ProfileDetails";
 
 function App() {
   return (
-    //Context'im ile sarmalıyorum 
     <DataProvider>
-      {/* Route ayarları */}
       <BrowserRouter>
         <Routes>
-          {/* Rotalar */}
           <Route path="/" element={<Home />} />
           <Route path="/:id" element={<ProfileDetails />} />
         </Routes>

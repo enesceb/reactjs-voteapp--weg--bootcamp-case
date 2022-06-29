@@ -6,7 +6,7 @@ import { ReactComponent as VoteSVG } from "../assets/vote.svg";
 import useFetchUsers from "../services/useFetchUsers";
 
 const Home = () => {
-  // API'den gelen verileri context yapısı ile yönetiyorum
+
 
   const { users, handlePrev, } = useContext(DataContext);
   const { setUsers} = useFetchUsers(users);
@@ -14,18 +14,18 @@ const Home = () => {
   const sortedUsers = users.sort((a,b) => b.vote - a.vote)
 
   const updateVote = selected => {
+
     setUsers(sortedUsers => sortedUsers.map(user => {
       if(user.id === selected.id){
-        (user.vote += 1)
+        user.vote += 1
       }
-      console.log(user)
+   
       return user
     }))
   }
   return (
     <>
-      {/* Çalışanların Listelendiği alan. API'den genel veriler bir alt componente (EmployeeCards) prop olarak iletiliyor.*/}
-      {/* NOT: Context'i direkt olarak EmployeeCards componentinin içinde de kullanabilirdim fakat clean code olması açısından burada prop olarak göndermeyi tercih ettim */}
+    
       {sortedUsers &&
         sortedUsers.map((user) => {
           return (
